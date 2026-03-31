@@ -1,0 +1,13 @@
+{
+  "name": "ecommerce-mern",
+  "version": "1.0.0",
+  "description": "Full-stack MERN E-commerce App",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "install-all": "cd backend && npm i && cd ../frontend && npm i"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

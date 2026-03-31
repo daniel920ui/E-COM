@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Pro | Modern Shopping Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .gradient-text { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .glass { background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.18); }
+    .neumorphism { box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #f8f9fa; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 min-h-screen font-sans antialiased">
+  
+  <!-- Header -->
+  <header class="sticky top-0 z-50 glass shadow-lg backdrop-blur-xl border-b border-white/30">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all">
+            <i class="fas fa-store text-2xl text-white"></i>
+          </div>
+          <div>
+            <h1 class="text-2xl font-black gradient-text">E-Commerce Pro</h1>
+            <span class="text-xs text-gray-500 font-medium">Premium Shopping</span>
+          </div>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center space-x-12">
+          <a href="#home" class="text-lg font-semibold text-gray-700 hover:text-blue-600 transition-colors px-3 py-2 rounded-lg hover:bg-blue-50">Home</a>
+          <a href="#categories" class="text-lg font-semibold text-gray-700 hover:text-blue-600 transition-colors px-3 py-2 rounded-lg hover:bg-blue-50">Categories</a>
+          <a href="#products" class="text-lg font-semibold text-gray-700 hover:text-blue-600 transition-colors px-3 py-2 rounded-lg hover:bg-blue-50">Products</a>
+          <a href="#login" class="text-lg font-semibold text-gray-700 hover:text-blue-600 transition-colors px-3 py-2 rounded-lg hover:bg-blue-50">Login</a>
+        </nav>
+
+        <!-- Right side -->
+        <div class="flex items-center space-x-4">
+          <!-- Search -->
+          <div class="relative hidden lg:block">
+            <input type="text" placeholder="Search products..." class="w-64 pl-12 pr-4 py-3 bg-white/50 backdrop-blur-sm rounded-2xl border border-white/30 focus:ring-4 focus:ring-blue-200 focus:outline-none transition-all text-sm placeholder-gray-500">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          </div>
+
+          <!-- Login/Profile -->
+          <a href="#login" id="login-link" class="px-6 py-3 text-sm font-semibold text-gray-700 bg-white/50 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white hover:shadow-lg transition-all flex items-center space-x-2">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+
+          <!-- Cart -->
+          <div class="relative">
+            <a href="#cart" class="relative p-4 bg-white/50 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white hover:shadow-lg transition-all group">
+              <i class="fas fa-shopping-cart text-xl text-gray-700 group-hover:text-blue-600 transition-colors"></i>
+              <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-7 h-7 flex items-center justify-center font-bold shadow-lg">0</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden p-2 rounded-lg hover:bg-white/50 transition-colors">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center px-6 pt-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Hero content -->
+      <div class="space-y-8">
+        <div class="inline-block bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm px-8 py-4 rounded-3xl border border-blue-200">
+          <span class="text-sm font-bold text-blue-600 uppercase tracking-wider">🆕 New Arrivals</span>
+        </div>
+        <h1 class="text-7xl lg:text-8xl font-black leading-tight gradient-text">
+          Premium <span class="block text-6xl lg:text-7xl">Shopping</span>
+          <span class="block bg-white/80 backdrop-blur-sm px-6 py-3 rounded-2xl text-2xl font-semibold text-gray-800 shadow-xl">Experience Awaits</span>
+        </h1>
+        <p class="text-xl text-gray-700 leading-relaxed max-w-lg">
+          Discover our curated collection of premium products. Fast delivery, secure payments, and exceptional customer service guaranteed.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#products" class="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-6 rounded-3xl text-2xl font-bold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all flex items-center space-x-3">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Shop Now</span>
+          </a>
+          <a href="#categories" class="border-2 border-white/50 text-white px-12 py-6 rounded-3xl text-2xl font-bold hover:bg-white/20 backdrop-blur-sm transition-all flex items-center space-x-3">
+            <i class="fas fa-layer-group"></i>
+            <span>Categories</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Hero image -->
+      <div class="relative">
+        <div class="relative z-10 w-full h-96 lg:h-[600px] bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-4xl p-12 flex items-center justify-center backdrop-blur-xl border-4 border-white/30 shadow-2xl">
+          <div class="text-9xl animate-pulse-slow">🛍️</div>
+        </div>
+        <div class="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-4xl blur-xl animate-pulse-slow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Login Modal Overlay -->
+  <div id="login-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="max-w-md w-full glass rounded-3xl p-10 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-4xl font-black gradient-text">Welcome Back</h2>
+        <button onclick="closeLogin()" class="text-2xl hover:text-red-500 transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form id="login-form" class="space-y-6">
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-3">Email Address</label>
+          <input type="email" id="login-email" required class="w-full px-5 py-4 bg-white/50 backdrop-blur-sm border border-white/30 rounded-2xl focus:ring-4 focus:ring-blue-200 focus:outline-none transition-all text-lg placeholder-gray-500" placeholder="john@example.com">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-3">Password</label>
+          <input type="password" id="login-password" required class="w-full px-5 py-4 bg-white/50 backdrop-blur-sm border border-white/30 rounded-2xl focus:ring-4 focus:ring-blue-200 focus:outline-none transition-all text-lg placeholder-gray-500" placeholder="••••••••">
+        </div>
+        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-5 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all">
+          <i class="fas fa-sign-in-alt mr-2"></i>Sign In Securely
+        </button>
+        <div class="text-center pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-600">
+            Don't have an account? <a href="#" onclick="showRegister()" class="font-bold gradient-text hover:underline">Create one now</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Categories Section -->
+  <section id="categories" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <h2 class="text-5xl font-black text-gray-800 mb-6">Shop by Category</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          Browse our premium collections across all categories
+        </p>
+      </div>
+      <div class="grid md:grid-cols-4 gap-6">
+        <!-- Electronics -->
+        <a href="#products" class="group bg-gradient-to-br from-indigo-500 via-blue-600 to-indigo-700 text-white p-10 rounded-3xl hover:shadow-2xl hover:scale-105 hover:rotate-1 transition-all overflow-hidden relative border border-white/20 backdrop-blur-sm">
+          <img src="https://images.unsplash.com/photo-1498049794567-5bb13a9b93f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Electronics" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0">
+          <div class="relative z-10 text-center">
+            <i class="fas fa-laptop-code text-5xl mb-6 bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block shadow-xl"></i>
+            <h3 class="text-2xl font-bold mb-3 drop-shadow-lg">Electronics</h3>
+            <p class="opacity-90 font-medium">Laptops, phones, gadgets</p>
+          </div>
+        </a>
+
+        <!-- Fashion -->
+        <a href="#products" class="group bg-gradient-to-br from-emerald-500 via-teal-500 to-emerald-600 text-white p-10 rounded-3xl hover:shadow-2xl hover:scale-105 hover:rotate-[-2deg] transition-all overflow-hidden relative border border-white/20 backdrop-blur-sm">
+          <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Fashion" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0">
+          <div class="relative z-10 text-center">
+            <i class="fas fa-tshirt text-5xl mb-6 bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block shadow-xl"></i>
+            <h3 class="text-2xl font-bold mb-3 drop-shadow-lg">Fashion</h3>
+            <p class="opacity-90 font-medium">Clothing, shoes, accessories</p>
+          </div>
+        </a>
+
+        <!-- Mobile -->
+        <a href="#products" class="group bg-gradient-to-br from-purple-500 via-violet-500 to-purple-600 text-white p-10 rounded-3xl hover:shadow-2xl hover:scale-105 hover:rotate-1 transition-all overflow-hidden relative border border-white/20 backdrop-blur-sm">
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Mobile" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0">
+          <div class="relative z-10 text-center">
+            <i class="fas fa-mobile-alt text-5xl mb-6 bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block shadow-xl"></i>
+            <h3 class="text-2xl font-bold mb-3 drop-shadow-lg">Mobile</h3>
+            <p class="opacity-90 font-medium">Smartphones & tablets</p>
+          </div>
+        </a>
+
+        <!-- Home & Living -->
+        <a href="#products" class="group bg-gradient-to-br from-orange-500 via-amber-500 to-orange-600 text-white p-10 rounded-3xl hover:shadow-2xl hover:scale-105 hover:rotate-[-2deg] transition-all overflow-hidden relative border border-white/20 backdrop-blur-sm">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Home Living" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0">
+          <div class="relative z-10 text-center">
+            <i class="fas fa-home text-5xl mb-6 bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block shadow-xl"></i>
+            <h3 class="text-2xl font-bold mb-3 drop-shadow-lg">Home & Living</h3>
+            <p class="opacity-90 font-medium">Furniture & decor</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section id="products" class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <h2 class="text-5xl font-black text-gray-800 mb-6">Featured Products</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Our best sellers and new arrivals
+        </p>
+      </div>
+<div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Gaming Laptop -->
+        <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden hover:-translate-y-3 transition-all border border-gray-100">
+          <div class="h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Gaming Laptop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">
+                ★★★★☆
+              </div>
+              <span class="ml-2 text-sm text-gray-500 font-medium">(342 reviews)</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2 text-gray-800">ASUS ROG Strix G16 RTX 4070</h3>
+            <div class="flex items-center justify-between mb-6">
+₹1,99,999
+              <span class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">In Stock</span>
+            </div>
+            <button onclick="addToCart('laptop1')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+              <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Wireless Headphones -->
+        <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden hover:-translate-y-3 transition-all border border-gray-100">
+          <div class="h-64 overflow-hidden">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIRBhEQEhEQEg8QEBAXFhMTExATFRgVFxUWFhYSExUZHSggGBonHRgTIT0iJykrOjovFx82ODMsOygtLisBCgoKDQ0NFQ8PFSsZFRkrKzcuKy0rOCs3Ky4rNzcrLis0KzgtNys3Ky0rNzcrNys4NzcyNzItOCstKysrNysrN//AABEIAKMBNgMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABwMEBQYIAgH/xABCEAACAQMABgcDCQcCBwAAAAAAAQIDBBEFBhIhMVEHEyJBYXGBFJGhIzJCUmJygrHBM0NjkqLR8CThCBcmU3N0s//EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABcRAQEBAQAAAAAAAAAAAAAAAAARQQH/2gAMAwEAAhEDEQA/AJxAAAAAAAAAAAAAAAAAAAAAAAAANc1v1tpWFDGOsuJLMaSeN316j+jH4vuA2MHPmltdry4rtzupwWd1OjinBeGN7l6s9aO09XUlitUUu6UZzWXyazuYSugQRrqz0gy61U7rtRe7rEsSXjJL5y+PmSRTmpU1KLTjJJpremnwaCvQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDa16fhY6IlWlhzfZpwb+dPHf4Li/I5q1l1jqV72cpScpzk3KXN/ou7HJGy9LGtvtOlpKEs0aeYU8cGs9qf4mvcomh6OtNqW3LOPz8EEVtHWdevcRjTjKUptJJJttvuS7zdb7VS9sLOnUuYRVOo8bUZKTjLGVGeOD3NrjwJS6NNTVZaPjXrQXtdWPB/uoP8Adr7XN+ndv2PWnRautXrihjLnSls+FSPapv0kogc/3FTE1Jd6z69/xySp0U6fdW2nazeZU1tQz9XOJR9G0/VkRTnm2i/83pP+5ndQNI9TrVbPOIyqKD8p9j82n6FHQIAIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAan0l6c9k1ZnsvFWvmnHmk125ekcrPOSNsID6adO9bp2VKL7FtHq1y23vqP34j+ACM7mbrX2PElHof1ZVzprr5xzb2Ti0nwlXe+K/Cu15uJGejabw5Ybk3iKXFt8EjqbUjQSsdWaFvu6xR2qj51Zb5v37vJIIzoACua9PUOq0tdUsYVO5rRXkqk0vhgx9Cu6deM1xhKMl5p5M7r+sa33q/j598U/1NbqP5MqOqaU9qkpLhJJ+9HosdAz2tB20vrW9F++ES+IoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC00vfRt9F1q8vm0qc5Y54WUvV4Xqco6fuZVbuUpPMpycpPnKTy372yfemLSXV6tRop9q4qpP7kO2/jse858rLN3nkVG5dE2g/adb6KazStV10+W1FpU1/M0/ws6NI16C9E9Xq5Vumu1dVWk/4dLMV/V1nwJKIoAAOdukKWdcb3/zJe6ETXKr+R9DNdJtTqderuE921UjNPnGcItPy4rzTMDXqL2dvO7BUdO6sr/py0/9Wh/84mTLLQtJw0Nbwaw40KKa5NQSaL0igAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIR6adK7WskKC3qhRWfvVHtP+lQIvlLc3h5ZtHS3bXFPXe5c4SxVlGdOWOzKnsqKw/DGPQtejHQlS+1soQcX1VGcatVtPChB5UW+/akox9ZcmDkdG6saNVrq9bW/fRoU4v72ytp+sssyYDe4ADAaQ1zsKE3GdzTcl9GntVXnk9hPHqWMekbR7ljrKi8XTngCNOnxwnrPQp4W1C1i2+/t1J7s/h+J56FNU7evpa4rVoOpG1dB0oybcOslttuUeEsYi1nvML0jaSjea61qtOW1RXVQpyw1mMacc7ms/PcySugmz2dW7iq+NW7kvSEIRXx2gJKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABb397ToWkqtSSjTgstv8lzfgRLrhrxVrpwpuVGg+EU8Tl4za7vsr4gWHTFcdbrWopbcaNvTjue7acpylv54cfcjY+hm4oUNBVYzq0qdatcylsTnCM9hQhCKw3v3qT/ABEUXN1jiyhRvdqeFkI6T1l1koWNh1tWWZS/Z044c5vlHw4ZfBe4iDWDWm6vpvrJ7FF8KFNtQx9t8Zvz3ckjV1Wbw5SbwsLLzhccLkWV7pfD2Ye8DKVpxiuKRaueXuMVRqOUst5MnQ4AW2h6e3fQg28urKLffnaayb10da9+w26t60dq2dWo9qK7cG5ZcvtLw+PcaLq/US0kpN7KVaq84zjtS34Ptu/kG/tS/Marqe0uYVbaNWnKM6c4pxlF5TT70ViEeibW52+lFY1Zf6e4liDb3Qqvgl4S4eeObJuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYfW7SnsurtetnEowxH78uzH4vPoBHPSHrD7Tpr2aEvkLdtPHCVT6UvTh7+Zo+kKmauOR9sqmajb472WlxPtNlZa9pipKVxsxW5F5o236uhv+c97/ALHmlDNTafmU9IXqjR3Pe8r9CK8aT0hv2IvzZj6ct5aueZZK1J7wrLWrMrbvcYe2TxkvI1XzCKTt61Os9hQnFuT3tp723+pd0YONslLdLe2s54s+Rry5n2dTKAta0mpZTaaeU1uafc0+Z0/qfpb2zVi1uXjaq0Y7eOHWLs1MfiUjlyuzoPoYz/y+t+XWXOPLr6mfjkDeAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACM+nDSWxom2oZ/a1ZzflTSW/1mvcSYQt/xBNq9sn3dXXS89qGf0Aj+xvUqmCpcb6cscma51+J5MtaXmUuZUW9SpiDWceJgrmttVPBbkvAutKVsVppcNt+7JjMkVUTL6ypfSfDu/uWNCO1US/zBlocALmLKkWW8WVIsIuIs9plCLKkWBQuN0mdRal6LdpqpaW8lidOjHbX8SXbqf1SkQp0Xasu91njVnH/AE1o4VJt8JTTzTp+9bT8I47zoUKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARx056FdfVNV4LM7SptPn1csRn8dh+SZI5Tr0YzoShNKUJxcZRe9OLWGn6AcYSkeres1M2vpK1LqaM0y0k5WlVt0anHd/25P6y/3NOg+0B90lvq55lmZStR26G7e1vX9jGbIFxYftX5GRTMXby2aqfd3mRTCK0WVIsoJlRMCvFl7ouyqXF/ToUo7VWrJRjHx5t9ySy2+SZYUouVRRinKUmkoxTbbe5JJcWdBdF2o/sFl7RXivba0d63PqoPf1af1nuy/Tu3hsmqWr9Ow0JC3hva7VSeN86j+dN/kvBJGZACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACx01oijeaOlb14KpSmuD4p90ovua5kCa49ElzaVZVLdO4tuPZWakVylFcfNfA6JAHIVGzaqbLTUuTTR7utBOfah87vT4Py5M6m0nq7aXDzWt6U5P6WziX8ywzDvo7sNrKpzXgqksBHMErCUZYlFxfisFenaPB1PZ6n2NJbranJ86i6z4SykeZ6laOcs+xWy+7TjFe6OEFcvKxn4e/Bser3R/f3k11dLYpv97UzGGOabXa/Dk6KstXbOjLNK1t4SX0o0obX82MmTA0vUfo6ttHYqv5e7x+1ksKPNUo/R8+P5G6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//9k=" alt="Headphones" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">
+                ★★★★★
+              </div>
+              <span class="ml-2 text-sm text-gray-500 font-medium">(567 reviews)</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2 text-gray-800">Sony WH-1000XM5 Headphones</h3>
+            <div class="flex items-center justify-between mb-6">
+₹32,999
+              <span class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">In Stock</span>
+            </div>
+            <button onclick="addToCart('headphones1')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+              <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- iPhone 15 Pro -->
+        <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden hover:-translate-y-3 transition-all border border-gray-100">
+          <div class="h-64 overflow-hidden">
+            <img src="data:image/jpeg;base64,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" alt="iPhone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">
+                ★★★★★
+              </div>
+              <span class="ml-2 text-sm text-gray-500 font-medium">(1,234 reviews)</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2 text-gray-800">iPhone 15 Pro Max 256GB</h3>
+            <div class="flex items-center justify-between mb-6">
+₹99,999
+              <span class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">In Stock</span>
+            </div>
+            <button onclick="addToCart('iphone1')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+              <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Nike Shoes -->
+        <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden hover:-translate-y-3 transition-all border border-gray-100">
+          <div class="h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Nike Shoes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">
+                ★★★★☆
+              </div>
+              <span class="ml-2 text-sm text-gray-500 font-medium">(456 reviews)</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2 text-gray-800">Nike Air Jordan 1 Retro High</h3>
+            <div class="flex items-center justify-between mb-6">
+₹15,999
+              <span class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">In Stock</span>
+            </div>
+            <button onclick="addToCart('nike1')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+              <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Smart Watch -->
+        <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden hover:-translate-y-3 transition-all border border-gray-100">
+          <div class="h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Smart Watch" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">
+                ★★★★☆
+              </div>
+              <span class="ml-2 text-sm text-gray-500 font-medium">(289 reviews)</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2 text-gray-800">Apple Watch Ultra 2</h3>
+            <div class="flex items-center justify-between mb-6">
+₹64,999
+              <span class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">In Stock</span>
+            </div>
+            <button onclick="addToCart('watch1')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+              <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Camera -->
+        <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden hover:-translate-y-3 transition-all border border-gray-100">
+          <div class="h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Camera" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">
+                ★★★★★
+              </div>
+              <span class="ml-2 text-sm text-gray-500 font-medium">(178 reviews)</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2 text-gray-800">Canon EOS R5 Mirrorless</h3>
+            <div class="flex items-center justify-between mb-6">
+₹3,19,999
+              <span class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">In Stock</span>
+            </div>
+            <button onclick="addToCart('camera1')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+              <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- PS5 -->
+        <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden hover:-translate-y-3 transition-all border border-gray-100">
+          <div class="h-64 overflow-hidden">
+            <img src="data:image/jpeg;base64,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" alt="PS5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">
+                ★★★★☆
+              </div>
+              <span class="ml-2 text-sm text-gray-500 font-medium">(892 reviews)</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2 text-gray-800">PS5 Digital Edition + 2 Games</h3>
+            <div class="flex items-center justify-between mb-6">
+<span class="flex items-center justify-between mb-6">₹59,999</span>
+</xai:function_call
+
+>
+
+<xai:function_call name="edit_file">
+<parameter name="path">
+              <span class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">Low Stock</span>
+            </div>
+            <button onclick="addToCart('ps5')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+              <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Coffee Machine -->
+        <div class="group bg-white rounded-3xl shadow-xl hover:shadow-2xl overflow-hidden hover:-translate-y-3 transition-all border border-gray-100">
+          <div class="h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Coffee Machine" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-lg">
+                ★★★★☆
+              </div>
+              <span class="ml-2 text-sm text-gray-500 font-medium">(234 reviews)</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 line-clamp-2 text-gray-800 truncate">Breville Barista Express Coffee Machine</h3>
+            <div class="flex items-center justify-between mb-6">
+<span class="flex items-center justify-between mb-6">₹69,999</span>
+</xai:function_call
+
+>
+
+<xai:function_call name="attempt_completion">
+<parameter name="result">
+
+              <span class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-semibold">In Stock</span>
+            </div>
+            <button onclick="addToCart('coffee1')" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+              <i class="fas fa-cart-plus mr-2"></i>Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shopping Cart Section -->
+  <section id="cart" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-5xl font-black text-gray-800 text-center mb-20">Your Shopping Cart</h2>
+      <div id="cart-items" class="space-y-6 mb-16">
+        <!-- Dynamic cart content -->
+      </div>
+      <div class="bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl p-12 shadow-2xl border border-gray-200">
+        <div class="flex justify-between items-center text-4xl font-black mb-12">
+          <span>Total Amount:</span>
+          <span id="cart-total" class="text-blue-600">$0.00</span>
+        </div>
+        <button onclick="checkout()" class="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white py-6 rounded-3xl text-2xl font-black shadow-2xl hover:shadow-3xl hover:scale-105 transition-all">
+          <i class="fas fa-credit-card mr-3"></i>Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Enhanced shopping cart with localStorage persistence
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    let user = JSON.parse(localStorage.getItem('user') || 'null');
+
+    function init() {
+      updateCartDisplay();
+      updateUserStatus();
+    }
+
+    function addToCart(productId) {
+      if (!user) {
+        document.getElementById('login-modal').classList.remove('hidden');
+        return;
+      }
+      
+      // Add product logic (similar to previous)
+      // ...
+      
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      // Enhanced cart display logic
+      // ...
+    }
+
+    init();
+  </script>
+
+</body>
+</html>
